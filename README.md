@@ -1,4 +1,4 @@
-# Cross-platform shell configuration
+# shell-config
 
 Personal shell configuration for Linux/Termux (Bash) and native Windows
 (PowerShell). Session management lives in `starttmux.py`, using Python's standard
@@ -37,11 +37,11 @@ starttmux --config /path/to/sessions.json personal-site
 You can also invoke the Python CLI directly, without loading shell configuration:
 
 ```bash
-python3 ~/.config/bash-config/starttmux.py --help
+python3 ~/.config/shell-config/starttmux.py --help
 ```
 
 ```powershell
-py -3 "$HOME/.config/bash-config/starttmux.py" --help
+py -3 "$HOME/.config/shell-config/starttmux.py" --help
 ```
 
 ### Session configuration
@@ -99,10 +99,10 @@ pkg install python tmux git curl neovim
 Run the installer with Bash (requires `curl` and `git`):
 
 ```bash
-curl -fsSL https://raw.githubusercontent.com/Mrchazaaa/bash-config/master/install/bash.sh | bash
+curl -fsSL https://raw.githubusercontent.com/Mrchazaaa/shell-config/master/install/bash.sh | bash
 ```
 
-This clones the repository into `~/.config/bash-config` and adds its loader to
+This clones the repository into `~/.config/shell-config` and adds its loader to
 `~/.bashrc`. Re-running the installer reuses an existing checkout without updating
 it and avoids adding the same loader line twice. An unrelated directory at the
 installation path is left untouched and causes the installer to stop.
@@ -123,8 +123,8 @@ winget install psmux
 Clone the repository, then run its PowerShell installer:
 
 ```powershell
-git clone https://github.com/Mrchazaaa/bash-config.git "$HOME/.config/bash-config"
-& "$HOME/.config/bash-config/install/powershell.ps1"
+git clone https://github.com/Mrchazaaa/shell-config.git "$HOME/.config/shell-config"
+& "$HOME/.config/shell-config/install/powershell.ps1"
 . $PROFILE
 ```
 
@@ -140,7 +140,7 @@ RemoteSigned`).
 For manual loading, add this to `$PROFILE`:
 
 ```powershell
-. (Join-Path $HOME '.config/bash-config/init.ps1')
+. (Join-Path $HOME '.config/shell-config/init.ps1')
 ```
 
 Then use `starttmux`, `nvim-code`, `nvim-hemingway`, or `nvim-clean` directly in
@@ -149,23 +149,23 @@ directories differ between machines.
 
 ### Manual Bash installation
 
-1. Clone this repository into `~/.config/bash-config`:
+1. Clone this repository into `~/.config/shell-config`:
 
    ```bash
    mkdir -p ~/.config
-   git clone https://github.com/Mrchazaaa/bash-config.git ~/.config/bash-config
+   git clone https://github.com/Mrchazaaa/shell-config.git ~/.config/shell-config
    ```
 
 2. Open `~/.bashrc` in your preferred editor and add the following line at the end:
 
    ```bash
-   source "$HOME/.config/bash-config/init.sh"
+   source "$HOME/.config/shell-config/init.sh"
    ```
 
    Or append it with this one-liner:
 
    ```bash
-   printf '\n%s\n' 'source "$HOME/.config/bash-config/init.sh"' >> ~/.bashrc
+   printf '\n%s\n' 'source "$HOME/.config/shell-config/init.sh"' >> ~/.bashrc
    ```
 
 3. Reload your Bash configuration to apply the changes to your current shell:
