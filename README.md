@@ -1,7 +1,7 @@
 # shell-config
 
 Personal shell configuration for Linux/Termux (Bash) and native Windows
-(PowerShell). Session management lives in `starttmux.py`, using Python's standard
+(PowerShell). Session management lives in `src/starttmux.py`, using Python's standard
 library to invoke tmux on Linux and psmux on Windows. No WSL or pip dependencies
 are required. Shell loaders also provide Neovim profile shortcuts.
 
@@ -37,11 +37,11 @@ starttmux --config /path/to/sessions.json personal-site
 You can also invoke the Python CLI directly, without loading shell configuration:
 
 ```bash
-python3 ~/.config/shell-config/starttmux.py --help
+python3 ~/.config/shell-config/src/starttmux.py --help
 ```
 
 ```powershell
-py -3 "$HOME/.config/shell-config/starttmux.py" --help
+py -3 "$HOME/.config/shell-config/src/starttmux.py" --help
 ```
 
 ### Session configuration
@@ -183,17 +183,19 @@ directories differ between machines.
 The root `init.sh` and `init.ps1` loaders source shell-specific modules:
 
 ```text
-shell/
-  bash/
-    tmux.sh
-    neovim.sh
-  powershell/
-    tmux.ps1
-    neovim.ps1
+src/
+  starttmux.py
+  shell/
+    bash/
+      tmux.sh
+      neovim.sh
+    powershell/
+      tmux.ps1
+      neovim.ps1
 ```
 
 Add shell helpers to the appropriate directory and source them from its root
-loader. Both shells share the root `starttmux.py` CLI and `sessions.json`
+loader. Both shells share the `src/starttmux.py` CLI and the root `sessions.json`
 configuration. Installation scripts live in `install/bash.sh` and
 `install/powershell.ps1`.
 

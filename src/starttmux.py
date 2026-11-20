@@ -124,8 +124,8 @@ def main(argv=None):
     parser.add_argument("session", nargs="?", help="preferred existing session (exact name)")
     parser.add_argument(
         "--config", type=Path,
-        default=Path(os.environ.get("STARTTMUX_CONFIG") or Path(__file__).with_name("sessions.json")),
-        help="sessions JSON file (default: STARTTMUX_CONFIG or adjacent sessions.json)",
+        default=Path(os.environ.get("STARTTMUX_CONFIG") or Path(__file__).resolve().parent.parent / "sessions.json"),
+        help="sessions JSON file (default: STARTTMUX_CONFIG or repository-root sessions.json)",
     )
     args = parser.parse_args(argv)
     try:
