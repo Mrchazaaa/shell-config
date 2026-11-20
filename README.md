@@ -120,7 +120,17 @@ available through WinGet:
 winget install psmux
 ```
 
-Clone the repository, then run its PowerShell installer:
+Run the installer in PowerShell (requires Git):
+
+```powershell
+irm https://raw.githubusercontent.com/Mrchazaaa/shell-config/master/install/powershell.ps1 | iex
+```
+
+This downloads and executes the installer, which clones the repository into
+`~/.config/shell-config` and adds its loader to your PowerShell profile. Open a new
+PowerShell session or run `. $PROFILE` to load the configuration.
+
+Alternatively, clone the repository, then run its PowerShell installer:
 
 ```powershell
 git clone https://github.com/Mrchazaaa/shell-config.git "$HOME/.config/shell-config"
