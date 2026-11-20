@@ -99,7 +99,7 @@ pkg install python tmux git curl neovim
 Run the installer with Bash (requires `curl` and `git`):
 
 ```bash
-curl -fsSL https://raw.githubusercontent.com/Mrchazaaa/bash-config/master/install.sh | bash
+curl -fsSL https://raw.githubusercontent.com/Mrchazaaa/bash-config/master/install/bash.sh | bash
 ```
 
 This clones the repository into `~/.config/bash-config` and adds its loader to
@@ -109,7 +109,7 @@ installation path is left untouched and causes the installer to stop.
 
 Open a new Bash shell or run `source ~/.bashrc` to load the configuration.
 
-You can also run `bash install.sh` from a local copy of the repository.
+You can also run `bash install/bash.sh` from a local copy of the repository.
 
 ### Windows (native PowerShell)
 
@@ -124,11 +124,11 @@ Clone the repository, then run its PowerShell installer:
 
 ```powershell
 git clone https://github.com/Mrchazaaa/bash-config.git "$HOME/.config/bash-config"
-& "$HOME/.config/bash-config/install.ps1"
+& "$HOME/.config/bash-config/install/powershell.ps1"
 . $PROFILE
 ```
 
-For an existing checkout, run `install.ps1` directly. It adds a loader to the
+For an existing checkout, run `install/powershell.ps1` directly. It adds a loader to the
 current PowerShell host's `$PROFILE`, creates the profile directory if necessary,
 and avoids duplicate loader lines. Like the Bash installer, it reuses an existing
 checkout without updating it and rejects an unrelated installation directory.
@@ -194,7 +194,8 @@ shell/
 
 Add shell helpers to the appropriate directory and source them from its root
 loader. Both shells share the root `starttmux.py` CLI and `sessions.json`
-configuration. Installers remain at the root alongside the loaders.
+configuration. Installation scripts live in `install/bash.sh` and
+`install/powershell.ps1`.
 
 ### Tests
 
